@@ -17,6 +17,11 @@ after_success:
   - docker build -t avinashnallam4441/multi-worker ./worker
   # Log into the docker-cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # tag the images first
+  - $ docker tag multi-client avinashnallam4441/multi-client
+  - $ docker tag multi-nginx avinashnallam4441/multi-nginx
+  - $ docker tag multi-server avinashnallam4441/multi-server
+  - $ docker tag multi-worker avinashnallam4441/multi-worker
   # Take those images and push to docker-hub
   - docker push multi-client
   - docker push multi-nginx
